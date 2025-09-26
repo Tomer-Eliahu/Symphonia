@@ -626,7 +626,7 @@ fn escape_pair<const MOD: usize>(cw: usize) -> (u16, u16) {
 }
 
 
-    pub static QUADS: [QuadsCodebook; 4] = LazyLock::new(|| { [
+    pub static QUADS: LazyLock<[QuadsCodebook; 4]> = LazyLock::new(|| { [
         make_basic_codebook(&SPECTRUM_TABLES[0]),
         make_basic_codebook(&SPECTRUM_TABLES[1]),
         make_basic_codebook(&SPECTRUM_TABLES[2]),
@@ -635,7 +635,7 @@ fn escape_pair<const MOD: usize>(cw: usize) -> (u16, u16) {
 
 
 
-    pub static PAIRS: [PairsCodebook; 6] = LazyLock::new(|| { [
+    pub static PAIRS: LazyLock<[PairsCodebook; 6]> = LazyLock::new(|| { [
         make_value_codebook(&SPECTRUM_TABLES[4], signed_pair::<9>),
         make_value_codebook(&SPECTRUM_TABLES[5], signed_pair::<9>),
         make_value_codebook(&SPECTRUM_TABLES[6], unsigned_pair::<8>),
@@ -646,12 +646,12 @@ fn escape_pair<const MOD: usize>(cw: usize) -> (u16, u16) {
 
 
 
-    pub static ESC: EscapeCodebook =
+    pub static ESC: LazyLock<EscapeCodebook> =
     LazyLock::new(|| { make_value_codebook(&SPECTRUM_TABLES[10], escape_pair::<17>)});
 
 
 
-    pub static SCALEFACTORS: Codebook<Entry8x16> = LazyLock::new(|| {
+    pub static SCALEFACTORS: LazyLock<Codebook<Entry8x16>> = LazyLock::new(|| {
         assert_eq!(SCF_CODEBOOK_CODES.len(), SCF_CODEBOOK_LENS.len());
 
         let len = SCF_CODEBOOK_CODES.len() as u8;
