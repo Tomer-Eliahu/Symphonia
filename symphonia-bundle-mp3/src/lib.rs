@@ -23,7 +23,7 @@ mod demuxer;
 
 // Decoder modules.
 #[cfg(any(feature = "mp1", feature = "mp2", feature = "mp3"))]
-mod decoder;
+pub mod decoder;
 #[cfg(any(feature = "mp1", feature = "mp2", feature = "mp3"))]
 mod synthesis;
 
@@ -37,7 +37,7 @@ mod layer1;
 #[cfg(feature = "mp2")]
 mod layer2;
 #[cfg(feature = "mp3")]
-mod layer3;
+pub mod layer3;
 
 #[cfg(any(feature = "mp1", feature = "mp2", feature = "mp3"))]
 pub use decoder::MpaDecoder;
