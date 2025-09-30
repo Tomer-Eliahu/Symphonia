@@ -27,7 +27,7 @@ use crate::layer1;
 #[cfg(feature = "mp2")]
 use crate::layer2;
 #[cfg(feature = "mp3")]
-use crate::layer3;
+pub use crate::layer3;
 
 pub enum State {
     #[cfg(feature = "mp1")]

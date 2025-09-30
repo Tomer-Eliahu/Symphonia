@@ -41,6 +41,7 @@ mod layer3;
 
 #[cfg(any(feature = "mp1", feature = "mp2", feature = "mp3"))]
 pub use decoder::MpaDecoder;
+pub use decoder::State;
 pub use demuxer::MpaReader;
 
 // For SemVer compatibility in v0.5.x series.
