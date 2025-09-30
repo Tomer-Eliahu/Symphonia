@@ -29,7 +29,7 @@ use log::warn;
 /// every byte allocated to the frame. The bit resevoir mechanism allows these unused portions of
 /// frames to be used by future frames.
 pub struct BitResevoir {
-    buf: Vec<u8>,
+    buf: Box<[u8]>,
     len: usize,
     consumed: usize,
 }
