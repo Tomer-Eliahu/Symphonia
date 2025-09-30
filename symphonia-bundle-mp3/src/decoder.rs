@@ -29,7 +29,7 @@ use crate::layer2;
 #[cfg(feature = "mp3")]
 use crate::layer3;
 
-enum State {
+pub enum State {
     #[cfg(feature = "mp1")]
     Layer1(layer1::Layer1),
     #[cfg(feature = "mp2")]
@@ -54,9 +54,9 @@ impl State {
 
 /// MPEG1 and MPEG2 audio layer 1, 2, and 3 decoder.
 pub struct MpaDecoder {
-    params: CodecParameters,
-    state: State,
-    buf: AudioBuffer<f32>,
+    pub params: CodecParameters,
+    pub state: State,
+    pub buf: AudioBuffer<f32>,
 }
 
 impl MpaDecoder {

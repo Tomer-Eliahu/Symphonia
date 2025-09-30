@@ -36,7 +36,7 @@ pub struct BitResevoir {
 
 impl BitResevoir {
     pub fn new() -> Self {
-        BitResevoir { buf: vec![1u8; 2048], len: 0, consumed: 0 }
+        BitResevoir { buf: vec![0u8; 2048].into_boxed_slice(), len: 0, consumed: 0 }
     }
 
     pub fn fill(&mut self, pkt_main_data: &[u8], main_data_begin: usize) -> Result<u32> {
