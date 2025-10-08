@@ -71,7 +71,7 @@ pub struct MediaSourceStream {
 
 impl MediaSourceStream {
     const MIN_BLOCK_LEN: usize = 1 * 1024;
-    const MAX_BLOCK_LEN: usize = 512 * 1024;
+    const MAX_BLOCK_LEN: usize = 128 * 1024;
 
     pub fn new(source: Box<dyn MediaSource>, options: MediaSourceStreamOptions) -> Self {
         // The buffer length must be a power of 2, and > the maximum read block length.
